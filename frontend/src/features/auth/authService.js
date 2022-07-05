@@ -4,9 +4,7 @@ const API_URL = 'http://localhost:5000/api/users';
 // Register user
 const register = async (userData) => {
  const response = await axios.post(API_URL, userData);
- console.log('sent?');
 
- console.log(response.data);
  if (response.data) {
   localStorage.setItem('user', JSON.stringify(response.data));
  }
@@ -14,6 +12,11 @@ const register = async (userData) => {
  return response.data;
 };
 
-const authService = { register };
+// Logout user
+const logout = () => {
+ localStorage.removeItem('user');
+};
+
+const authService = { register, logout };
 
 export default authService;
