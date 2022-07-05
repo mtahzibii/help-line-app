@@ -55,9 +55,10 @@ function Register() {
   setFormData((prevState) => ({ ...prevState, [e.target.id]: e.target.value }));
  };
 
- //  if (loading) {
- //   return <Spinner />;
- //  }
+ if (isLoading) {
+  return <Spinner />;
+ }
+
  return (
   <>
    <section className='heading'>
