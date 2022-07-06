@@ -49,7 +49,6 @@ const getTickets = asyncHandler(async (req, res) => {
 // @desc    Get user ticket
 // @route   GET /api/tickets/:id
 // @access  Private
-
 const getTicket = asyncHandler(async (req, res) => {
  const user = await User.findById(req.user.id);
 
@@ -58,18 +57,45 @@ const getTicket = asyncHandler(async (req, res) => {
   throw new Error('User not found');
  }
 
- const ticket = Ticket.findById(req.params.ticketId);
+ const ticket = await Ticket.findById(req.params.ticketId);
 
  if (!ticket) {
   res.status(404); // Not Found
   throw new Error('Ticket not found');
  }
- if (ticket.user.tString() !== req.user.id) {
-  res.status(401);
-  throw new Error('Not Authorized');
- }
+ //  if (ticket.user.toString() !== req.user.id) {
+ //   res.status(401);
+ //   throw new Error('Not Authorized');
+ //  }
 
  res.status(200).json(ticket);
 });
 
-module.exports = { createTicket, getTickets, getTicket };
+// @desc    Get user ticket
+// @route   Delete /api/tickets/:id
+// @access  Private
+const deleteTicket = asyncHandler(async (req, res) => {
+ const user = await User.findById(req.user.id);
+
+ if (!user) {
+  res.status(401); // Unauthorized
+  throw new Error('User not found');
+ }
+
+ const ticket = await Ticket.findById(req.params.ticketId);
+
+ if (!ticket) {
+  res.status(404); // Not Found
+  throw new Error('Ticket not found');
+ }
+ if (ticket.user.toString() !== req.user.id) {
+  res.status(401);
+  throw new Error('Not Authorized');
+ }
+
+ await ticket.remove();
+
+ res.status(200).json({ Message: 'Ticket successfully delete' });
+});
+
+module.exports = { createTicket, getTickets, getTicket, deleteTicket };
