@@ -1,4 +1,5 @@
 const express = require('express');
+var cors = require('cors');
 const dotenv = require('dotenv').config();
 const colors = require('colors');
 const connectDB = require('./config/db');
@@ -10,6 +11,13 @@ connectDB();
 
 // Initialize app
 const app = express();
+
+app.use(
+ cors({
+  origin: '*',
+ })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

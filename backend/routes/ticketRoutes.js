@@ -10,7 +10,6 @@ const {
  deleteTicket,
  updateTicket,
 } = require('../controllers/ticketController');
-const { updateOne } = require('../models/userModel');
 
 router.post('/', protect, createTicket);
 router.get('/', protect, getTickets);
