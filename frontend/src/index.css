@@ -208,6 +208,18 @@ h3 {
  font-size: 1.3rem;
 }
 
+.myTicket {
+ display: flex;
+ justify-content: space-evenly;
+ align-items: center;
+ background: #f4f4f4;
+ padding: 10px 15px;
+ border-radius: 7px;
+ font-weight: 700;
+ margin-bottom: 20px;
+ text-align: center;
+}
+
 .ticket,
 .ticket-headings {
  display: grid;
