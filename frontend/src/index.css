@@ -172,7 +172,8 @@ h3 {
 }
 
 .btn-danger {
- background: darkred;
+ background: rgb(126, 13, 13);
+ font-size: 17px;
  border: none;
 }
 
@@ -244,9 +245,10 @@ h3 {
  width: 100px;
  padding: 0 20px;
  justify-self: center;
- border-radius: 10px;
+ border-radius: 5px;
  font-size: 16px;
  text-align: center;
+ padding: 7px;
 }
 
 .status-new {

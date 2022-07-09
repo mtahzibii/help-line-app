@@ -4,6 +4,7 @@ import { getTickets, reset } from '../features/tickets/ticketSlice';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
 import TicketItem from '../components/TicketItem';
+import { toast } from 'react-toastify';
 
 function Tickets() {
  const dispatch = useDispatch();
@@ -13,9 +14,9 @@ function Tickets() {
 
  useEffect(() => {
   return () => {
-   //  if (isError) {
-   //   toast.error(message);
-   //  }
+   if (isError) {
+    toast.error(message);
+   }
 
    if (isSuccess) {
     dispatch(reset());
