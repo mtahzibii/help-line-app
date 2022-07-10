@@ -22,7 +22,8 @@
   "express-async-handler": "^1.2.0",
   "jsonwebtoken": "^8.5.1",
   "mongoose": "^6.4.2",
-  "no": "^0.0.1"
+  "no": "^0.0.1",
+  "react-modal": "^3.15.1"
  },
  "devDependencies": {
   "nodemon": "^2.0.18"
