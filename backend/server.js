@@ -10,14 +10,14 @@ const PORT = process.env.PORT || 5000;
 // Connect to database
 connectDB();
 
+// Initialize app
+const app = express();
+
 app.use(
  cors({
   origin: '*',
  })
 );
-
-// Initialize app
-const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
