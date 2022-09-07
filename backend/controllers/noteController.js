@@ -15,14 +15,15 @@ const getNotes = asyncHandler(async (req, res) => {
  }
 
  //  Check if ticket is the user's ticket
- const ticketId = await Ticket.findById(req.params.ticketId);
+ const ticketId = req.params.ticketId;
+ const ticket = await Ticket.findById(ticketId);
 
- if (ticketId.user.toString() !== req.user.id) {
+ if (ticket.user.toString() !== req.user.id) {
   res.status(401);
   throw new Error('User not authorized!');
  }
 
- const notes = await Note.find({ ticket: req.params.ticketId });
+ const notes = await Note.find({ tikcet: ticketId });
  res.status(200).json(notes);
 });
 
