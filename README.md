@@ -1,4 +1,4 @@
-# Help Desk App
+# Support Desk App
 
 This is an app which makes you to be able to log tickets.
 
