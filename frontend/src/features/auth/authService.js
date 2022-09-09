@@ -1,5 +1,5 @@
 const axios = require('axios');
-const API_URL = 'http://localhost:5000/api/users';
+const API_URL = '/api/users';
 
 // Register user
 const register = async (userData) => {
